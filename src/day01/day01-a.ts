@@ -2,6 +2,7 @@ import * as fs from 'fs'
 
 /**
  * https://adventofcode.com/2023/day/1
+ * Part A
  * @returns number
  */
 function main() {
