@@ -1,13 +1,13 @@
 import * as fs from 'fs'
+import * as os from 'os'
 
 function main() {
-    const sections = fs.readFileSync('src/day05/input.txt', 'utf8').split('\n\n')
+    const sections = fs.readFileSync('src/day05/input.txt', 'utf8').split(os.EOL + os.EOL)
 
     const sectionNumbers = sections.map((section, ind) => {
         if (ind === 0) return section.split(': ')[1].split(' ').map(num => Number(num))
-        return section.split(':\n')[1].split('\n').map(row => row.split(' ').map(num => Number(num)))
+        return section.split(':' + os.EOL)[1].split(os.EOL).map(row => row.split(' ').map(num => Number(num)))
     })
-    
     const seeds = sectionNumbers.shift() as number[]
 
     let minLocation = Number.MAX_SAFE_INTEGER
